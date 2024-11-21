@@ -29,7 +29,22 @@ const CustomDropdown = ({
         ) : (
           <UAEIcon className='w-4 h-4' />
         )}
-        {selectedCountry} <IoMdArrowDropdown />
+        <p className='flex flex-row items-center gap-1'>
+          {selectedCountry}{' '}
+          <span className='text-sm opacity-75'>
+            (
+            {
+              countryData.find((item) => item.country === selectedCountry)
+                ?.label
+            }
+            {
+              countryData.find((item) => item.country === selectedCountry)
+                ?.currency
+            }
+            )
+          </span>
+        </p>
+        <IoMdArrowDropdown />
       </button>
 
       {/* Dropdown Menu */}

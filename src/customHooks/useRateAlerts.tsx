@@ -18,7 +18,12 @@ const useRateAlerts = () => {
     }
   };
 
-  return { alerts, loading, fetchAlerts, setAlerts };
+  return {
+    alerts,
+    loading,
+    fetchAlerts,
+    setAlerts,
+  };
 };
 
 export default useRateAlerts;
