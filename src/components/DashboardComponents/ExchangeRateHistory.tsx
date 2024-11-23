@@ -61,7 +61,7 @@ const ExchangeRateChart = ({
     try {
       const countryCode = selectedCountry === 'UK' ? 'GBPINR=X' : 'AEDINR=X';
       const response = await axios.get(
-        `/.netlify/functions/forexdata?code=${countryCode}&timeline=1M`
+        `/api/public/api/currency-converter/forex?code=${countryCode}&timeline=1M`
       );
       const rawData = response.data;
       setCurrentRate(rawData[0].open);
