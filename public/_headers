@@ -1,6 +1,0 @@
-/*
-  Cross-Origin-Opener-Policy: same-origin
-  Cross-Origin-Embedder-Policy: require-corp
-/firebase-auth/*
-  Cross-Origin-Opener-Policy: unsafe-none
-  Cross-Origin-Embedder-Policy: unsafe-none
