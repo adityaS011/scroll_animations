@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, Auth } from 'firebase/auth';
+import { getAuth, Auth, signInWithRedirect } from 'firebase/auth';
 import {
   getFirestore,
   Firestore,
@@ -11,6 +11,7 @@ import {
   query, // Import Firestore Timestamp
 } from 'firebase/firestore';
 import { Alert } from '../utils/types';
+import { GoogleAuthProvider } from 'firebase/auth/web-extension';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB3GjdqNmTcgxk275w6Pda3cp1TaA7y6zQ',
@@ -26,8 +27,9 @@ const app = initializeApp(firebaseConfig);
 
 export const auth: Auth = getAuth(app);
 export const db: Firestore = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
-// Save alert with Firestore Timestamp
+signInWithRedirect(auth, provider);
 export const saveRateAlert = async (alert: {
   title: string;
   country: string;
