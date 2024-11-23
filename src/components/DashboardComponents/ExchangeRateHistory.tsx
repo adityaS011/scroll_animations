@@ -65,7 +65,6 @@ const ExchangeRateChart = ({
       );
       const rawData = response.data;
       setCurrentRate(rawData[0].open);
-      console.log(rawData);
       const chartData = rawData.map((item: ForexData) => ({
         date: item.resDate,
         rate: parseFloat(item.close),
@@ -73,6 +72,7 @@ const ExchangeRateChart = ({
       setData(chartData);
     } catch (error) {
       console.error('Error fetching forex data', error);
+    } finally {
     }
   };
 
