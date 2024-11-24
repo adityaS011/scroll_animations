@@ -60,8 +60,13 @@ const ExchangeRateChart = ({
   const fetchForexData = async () => {
     try {
       const countryCode = selectedCountry === 'UK' ? 'GBPINR=X' : 'AEDINR=X';
+      const apiUrl =
+        import.meta.env.MODE === 'development'
+          ? `/api/public/api/currency-converter/forex`
+          : `${import.meta.env.VITE_API_URL}`;
+
       const response = await axios.get(
-        `/api/public/api/currency-converter/forex?code=${countryCode}&timeline=1M`
+        `${apiUrl}?code=${countryCode}&timeline=1M`
       );
       const rawData = response.data;
       setCurrentRate(rawData[0].open);
